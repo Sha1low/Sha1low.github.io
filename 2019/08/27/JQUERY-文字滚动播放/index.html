@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    [JQUERY]文字滚动播放
+  
+</title>
+
+<meta name="description" content="文字轮流滚动播放">
+<meta name="keywords" content="Jquery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JQUERY]文字滚动播放">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/JQUERY-文字滚动播放/index.html">
+<meta property="og:site_name" content="勤能补拙">
+<meta property="og:description" content="文字轮流滚动播放">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/JQUERY-文字滚动播放/ouni.png">
+<meta property="og:updated_time" content="2019-08-27T15:41:52.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JQUERY]文字滚动播放">
+<meta name="twitter:description" content="文字轮流滚动播放">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/27/JQUERY-文字滚动播放/ouni.png">
+
+
+  <link rel="alternative" href="/atom.xml" title="勤能补拙" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">勤能补拙</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">勤能补拙</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+          <div class="author">ShallowDream</div>
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="cos.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端相关/">前端相关</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">存档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">3</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/denjones/hexo-theme-chan" title="chen" target="_blank" rel="noopener">chen</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/Sha1low" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://weibo.com/u/5726663410" title="微博" target="_blank" rel="noopener">微博</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-JQUERY-文字滚动播放" class="article article-type-post">
+  
+    <h1 class="article-header">
+      [JQUERY]文字滚动播放
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-08-27
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端相关/">前端相关</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <p>文字轮流滚动播放</p>
+<a id="more"></a>
+
+<hr>
+<br>
+
+
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><h3 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h3><p>1.先建一个容器,规定高度，宽度100%,关键是overflow:hidden<br>2.里面的li必须垂直居中，不然有可能会显示下一个li的一点点+浮动就可以了<br>3.图像保持垂直居中有很多方式,比如通过在img标签设置align属性,也可以通过css的vertical-align:middle也可以,总之方法很多…</p>
+<h3 id="JQUERTY"><a href="#JQUERTY" class="headerlink" title="JQUERTY"></a>JQUERTY</h3><p>1.设置容器里面ul的过渡动画,通过animate来设置margin的变化从而实现向上滚动的效果,在通过callback来使ul的margin返回原本的margin数值,把第一个li放到ul最后的位置，来达到无限重复往上滚动<br>2.设置定时器，先判断是否有li,如果有,则设置定时器来调用上面的函数</p>
+<br>
+
+
+
+<h2 id="源码："><a href="#源码：" class="headerlink" title="源码："></a>源码：</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"mod"</span> id=<span class="string">"mod"</span>&gt;</span><br><span class="line">    &lt;ul class=<span class="string">"list"</span>&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;span&gt;2019-08-27 22:14:30&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;广州白云区&lt;/span&gt;</span><br><span class="line">        &lt;span class=<span class="string">"img"</span>&gt;</span><br><span class="line">          &lt;img class=<span class="string">'pngtqico'</span> src=<span class="string">'http://img.tianqi.com/static/images/tianqi/b0.png'</span></span><br><span class="line">            style=<span class="string">'border:0;width:20px;height:20px'</span> /&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;晴&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;12°C&lt;/span&gt;~</span><br><span class="line">        &lt;span&gt;17°C&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;欧尼：今天又是一个打代码好日子呢&lt;/span&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;span&gt;2019-08-27 22:17:00&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;广州白云区&lt;/span&gt;</span><br><span class="line">        &lt;span class=<span class="string">"img"</span>&gt;</span><br><span class="line">          &lt;img class=<span class="string">'pngtqico'</span> src=<span class="string">'http://img.tianqi.com/static/images/tianqi/b0.png'</span></span><br><span class="line">            style=<span class="string">'border:0;width:20px;height:20px'</span> /&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;晴&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;12°C&lt;/span&gt;~</span><br><span class="line">        &lt;span&gt;17°C&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;欧尼：终于可以下班吃饭了,快乐的星期二&lt;/span&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;span&gt;2019-08-27 23:14:30&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;广州白云区&lt;/span&gt;</span><br><span class="line">        &lt;span class=<span class="string">"img"</span>&gt;</span><br><span class="line">          &lt;img class=<span class="string">'pngtqico'</span> src=<span class="string">'http://img.tianqi.com/static/images/tianqi/b0.png'</span></span><br><span class="line">            style=<span class="string">'border:0;width:20px;height:20px'</span> /&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;晴&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;12°C&lt;/span&gt;~</span><br><span class="line">        &lt;span&gt;17°C&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;欧尼回到了家,嗯,洗澡先放放,煲剧追动漫要紧&lt;/span&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;span&gt;2019-08-27 22:14:30&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;广州白云区&lt;/span&gt;</span><br><span class="line">        &lt;span class=<span class="string">"img"</span>&gt;</span><br><span class="line">          &lt;img class=<span class="string">'pngtqico'</span> src=<span class="string">'http://img.tianqi.com/static/images/tianqi/b0.png'</span></span><br><span class="line">            style=<span class="string">'border:0;width:20px;height:20px'</span> /&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">        &lt;span&gt;晴&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;12°C&lt;/span&gt;~</span><br><span class="line">        &lt;span&gt;17°C&lt;/span&gt;</span><br><span class="line">        &lt;span&gt;睡觉前...欧尼：我好像忘记登录游戏,赶紧登陆(打开农药)&lt;/span&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.mod&#123;</span><br><span class="line">   width: 100%;</span><br><span class="line">   background-color: <span class="comment">#ffe300;</span></span><br><span class="line">   height: 30px;</span><br><span class="line">   overflow: hidden;</span><br><span class="line">   font-size: 14px;</span><br><span class="line">   color: <span class="comment">#333333;</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> .mod .list&#123;</span><br><span class="line">   list-style-type: none;</span><br><span class="line">   padding: 0;</span><br><span class="line">   margin: 0;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> .mod .list li&#123;</span><br><span class="line">   text-align: center;</span><br><span class="line">   height: 30px;</span><br><span class="line">   line-height: 30px;</span><br><span class="line">   <span class="built_in">float</span>: left;</span><br><span class="line">   width: 100%;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /* .mod .list:hover&#123;</span><br><span class="line">   margin-top: -30px;</span><br><span class="line"> &#125; */</span><br><span class="line"></span><br><span class="line"> .pngtqico&#123;</span><br><span class="line">   vertical-align: middle;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="JQUERY"><a href="#JQUERY" class="headerlink" title="JQUERY"></a>JQUERY</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> moveElement(eve)&#123;</span><br><span class="line">    $(eve).find(<span class="string">"ul:first"</span>).animate(&#123;</span><br><span class="line">       marginTop : <span class="string">"-30px"</span></span><br><span class="line">    &#125;,400,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      $(this).css(&#123;</span><br><span class="line">        marginTop : 0</span><br><span class="line">      &#125;).find(<span class="string">"li:first"</span>).appendTo(this);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  $(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    <span class="built_in">let</span> num = $(<span class="string">".list li"</span>).length;</span><br><span class="line">    <span class="keyword">if</span>(num &gt; 1)&#123;</span><br><span class="line">      setInterval(<span class="string">"moveElement('#mod')"</span>,3000);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><img src="/2019/08/27/JQUERY-文字滚动播放/ouni.png" title="This is an image">
+
+<!--more-->
+
+
+
+
+
+
+
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 勤能补拙 - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/scripts/main.js"></script>
+
+</body>
+</html>

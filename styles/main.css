@@ -188,6 +188,10 @@ a {
 a:hover {
   color: #2ca831;
 }
+h1 {
+  font-size: 1.5rem;
+  padding: 3% 0;
+}
 html,
 body {
   position: absolute;
@@ -458,7 +462,7 @@ body {
   color: #2ca831;
 }
 .article .article-entry {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6em;
   text-align: justify;
 }
