@@ -817,9 +817,9 @@ pre .javascript .function {
     padding: 5px 10px;
   }
   .mobile-header .title {
-    font-size: 14px;
-    line-height: 14px;
-    vertical-align: middle;
+    font-size: 16px;
+    line-height: 16px;
+    vertical-align: bottom;
     color: #fff;
   }
   .mobile-header .title:hover {
