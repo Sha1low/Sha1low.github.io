@@ -265,4 +265,7 @@
     // execute above function
     initPhotoSwipeFromDOM(gallerySelector);
   }
+
+
+  console.log("欧尼最帅")
 })();
